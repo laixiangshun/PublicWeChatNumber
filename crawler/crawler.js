@@ -6,6 +6,7 @@ var co=require('co');
 var cheerio=require('cheerio');
 var Promise=require('bluebird');
 var request=Promise.promisify(require('request'));
+var cronJob=require('cron').CronJob;
 
 var URL='http://www.piaohua.com/';
 
@@ -163,3 +164,10 @@ exports.getCrawlMovieList=function* (evenKey){
     }
     return movieList;
 };
+
+//爬虫定时任务——————目前还没有没有实现
+var job=new cronJob('00 30 14 * * *',function(){
+    request.get(URL,function(err,res,body){
+        console.log(body);
+    })
+});

@@ -542,7 +542,7 @@ Wechat.prototype.getGroupIdByOpenId=function(openid){
     })
 };
 /**
- * 群发消息————按分组群发
+ * 群发消息————有groupid按分组群发，没有groupid则对所有用户群发
  * @type {Wechat}
  */
 Wechat.prototype.massSendMsg=function(type,message,groupid){
